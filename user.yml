@@ -1,6 +1,8 @@
 ---
 - name: create a user
   hosts: all
+  vars_files:
+    - password.yml
   tasks:
     - name: add a user
       user: 
