@@ -7,10 +7,4 @@
         name: "{{ item.user }}"
         password: "{{ item.password }}"
         state: present
-      loop:
-       - user: user1
-         password: user1123
-       - user: user2
-         password: user2123
-       - user: user3
-         password: user3123
+      loop: "{{ user_list }}"
