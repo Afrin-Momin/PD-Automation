@@ -9,5 +9,6 @@
         name: "{{ item.user }}"
         password: "{{ item.password }}"
         state: present
+        no_logs: true
       loop: "{{ user_list }}"
-      no_logs: true
+      #no_logs: true
