@@ -10,3 +10,4 @@
         password: "{{ item.password }}"
         state: present
       loop: "{{ user_list }}"
+      no_logs: true
