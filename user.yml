@@ -4,9 +4,13 @@
   tasks:
     - name: add a user
       user: 
-        name: "{{ item }}"
+        name: "{{ item.user }}"
+        password: "{{ item.password }}"
         state: present
       loop:
-       - user1
-       - user2
-       - user3
+       - user: user1
+         password: user1123
+       - user: user2
+         password: user2123
+       - user: user3
+         password: user3123
