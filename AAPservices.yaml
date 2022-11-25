@@ -3,6 +3,4 @@
   hosts: 10.0.3.15
   tasks:
     - name: check the services
-      command: "{{ item }}"
-      loops:
-        - automation-controller-services status
+      command: "automation-controller-services status"
