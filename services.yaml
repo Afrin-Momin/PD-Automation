@@ -1,0 +1,16 @@
+- name: checking service status
+  hosts: localhost
+  tasks:
+  - name: checking service status
+    command: systemctl status "{{ item }}"
+    with_items:
+     - automation-controller
+     - redis
+     - postgresql
+     - nginx
+     - supervisord
+    register: result
+    ignore_errors: yes
+  - name: showing report
+    debug:
+     var: result
