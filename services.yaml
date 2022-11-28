@@ -1,7 +1,7 @@
-- name: checking service status
+- name: Check the status and then start, enable and stop the services
   hosts: localhost
   tasks:
-  - name: checking service status
+  - name: check service status
     command: systemctl status "{{ item }}"
     with_items:
      - automation-controller
@@ -9,8 +9,46 @@
      - postgresql
      - nginx
      - supervisord
+     - receptor
     register: result
     ignore_errors: yes
+    
+  - name: start the service 
+    command: systemctl start "{{ item }}"
+    with_items:
+     - automation-controller
+     - redis
+     - postgresql
+     - nginx
+     - supervisord
+     - receptor
+    register: result
+    ignore_errors: yes
+    
+  - name: Enable the service
+    command: systemctl enable "{{ item }}"
+    with_items:
+     - automation-controller
+     - redis
+     - postgresql
+     - nginx
+     - supervisord
+     - receptor
+    register: result
+    ignore_errors: yes
+    
+  - name: Stop the service
+    command: systemctl status "{{ item }}"
+    with_items:
+     - automation-controller
+     - redis
+     - postgresql
+     - nginx
+     - supervisord
+     - receptor
+    register: result
+    ignore_errors: yes  
+    
   - name: showing report
     debug:
      var: result
