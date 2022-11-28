@@ -1,6 +1,6 @@
 ---
 - name: check the status of all services running in ansible tower
-  hosts: all
+  hosts: 192.168.1.83
   tasks:
     - name: check the services
       command: "automation-controller-services status"
