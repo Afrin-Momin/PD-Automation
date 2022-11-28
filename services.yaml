@@ -1,19 +1,7 @@
 - name: Check the status and then start, enable and stop the services
   hosts: 192.168.1.83
   tasks:
-  - name: check service status
-    command: systemctl status "{{ item }}"
-    with_items:
-     - automation-controller
-     - redis
-     - postgresql
-     - nginx
-     - supervisord
-     - receptor
-    register: result
-    ignore_errors: yes
-    
-  - name: start the service 
+  - name: Start the service
     command: systemctl start "{{ item }}"
     with_items:
      - automation-controller
@@ -25,7 +13,19 @@
     register: result
     ignore_errors: yes
     
-  - name: Enable the service
+  - name: Enable the service 
+    command: systemctl enable "{{ item }}"
+    with_items:
+     - automation-controller
+     - redis
+     - postgresql
+     - nginx
+     - supervisord
+     - receptor
+    register: result
+    ignore_errors: yes
+    
+  - name: Check the status of service
     command: systemctl enable "{{ item }}"
     with_items:
      - automation-controller
