@@ -1,5 +1,5 @@
 - name: Check the status and then start, enable and stop the services
-  hosts: localhost
+  hosts: 192.168.1.83
   tasks:
   - name: check service status
     command: systemctl status "{{ item }}"
