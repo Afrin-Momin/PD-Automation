@@ -26,7 +26,7 @@
     ignore_errors: yes
     
   - name: Check the status of service
-    command: systemctl enable "{{ item }}"
+    command: systemctl status "{{ item }}"
     with_items:
      - automation-controller
      - redis
@@ -38,7 +38,7 @@
     ignore_errors: yes
     
   - name: Stop the service
-    command: systemctl status "{{ item }}"
+    command: systemctl stop "{{ item }}"
     with_items:
      - automation-controller
      - redis
