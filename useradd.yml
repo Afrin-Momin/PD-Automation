@@ -1,0 +1,7 @@
+---
+- name: add user
+  hosts: localhost
+  tasks:
+    - name: joe
+      state: present
+      
