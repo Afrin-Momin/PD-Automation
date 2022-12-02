@@ -1,0 +1,10 @@
+---
+- name: system info
+  hosts: localhost
+  tasks:
+    - name: check system information
+      command: 
+        - lscpu
+      register: system_info
+    - debug:
+        var: system_info.results
