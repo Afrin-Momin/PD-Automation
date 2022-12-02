@@ -1,7 +1,8 @@
 ---
-- name: add user
+- name: create user and set password
   hosts: localhost
   tasks:
-    - name: joe
+    - name: "user1"
+      password: "redhat"
       state: present
       
