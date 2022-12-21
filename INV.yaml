@@ -7,7 +7,7 @@
         name: inventory.txt
         state: touch
     - blockinfile:
-        path: "/root/inventory.txt"
+        path: "inventory.txt"
         block: |
           - servera
           - serverb
