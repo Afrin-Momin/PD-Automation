@@ -7,4 +7,4 @@
         descriptions:
         organization: "Afrin_org"
         state: present
-        controller_config_file: 
+        
