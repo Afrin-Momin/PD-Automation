@@ -1,0 +1,10 @@
+---
+- hosts: all
+  tasks:
+    - name: add inventory
+      inventory:
+        name: "afrin_inventory"
+        descriptions:
+        organization: "Afrin_org"
+        state: present
+        controller_config_file: 
