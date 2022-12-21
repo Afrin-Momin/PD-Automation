@@ -4,7 +4,8 @@
     - name: add inventory
       inventory:
         name: "afrin_inventory"
-        descriptions:
+        descriptions: " servers "
         organization: "Afrin_org"
         state: present
+        controller_config_file: "~/tower_cli.cfg"
         
